@@ -1,41 +1,46 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		3월 5일 화요일		(1주 1)
+// 2024 1학기 STL 화56목56		3월 7일 목요일		(1주 2)
 // 
-// VisualStudio 17.9 이상, Release/x64
-// 프로젝트 설정 - 언어 /std:c++latest
-// 
-// 한학기 강의를 저장할 save 함수 작성하고 파일 분리
+// 많은 수의 데이터를 처리할 수 있어야...
 //-------------------------------------------------------------------
 #include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
-#include <algorithm>
+#include "save.h"
 
-void save(std::string_view);
+// [문제] main()을 손대지 말고 의도대로 실행되도록 change()를 선언하고 정의
 
-int main(void)
+class Dog
 {
-	std::cout << "2024 STL" << '\n';
-	save("STL.cpp");
+private:
+	int num;
+public:
+	Dog(int n) : num(n) {}
+	// operator int() { return num; }
+	friend std::ostream& operator<<(std::ostream& os, const Dog& ref);
+};
+
+std::ostream& operator<<(std::ostream& os, const Dog& ref)
+{
+	os << ref.num;
+	return os;
 }
 
-void save(std::string_view fileName)
+template <typename T>
+void change(T& a, T& b)
 {
-	// fileName을 읽기
-	std::ifstream in{ fileName.data() };	//RAII
-	if (not in) {
-		std::cout << fileName << " 열기 실패" << "\n";
-		exit(0);
-	}
+	T temp{ a };
+	a = b;
+	b = temp;
+}
 
-	// 저장할 파일을 덧붙여 쓰기모드로 연다.
-	std::ofstream out{ "2024 1학기 STL 화56목56 강의저장.txt", std::ios::app };
-	
-	// 읽을 파일의 내용을 읽어 쓸 파일에 덧붙인다.
-	// STL 자료구조와 알고리즘을 이용하여 기록한다. (좋은건 아니다)
-	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+//-------------
+int main(void)
+//-------------
+{
+	Dog a{ 1 }, b{ 2 };
 
-	out << "\n" << "\n";
-	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{ out });
+	change(a, b);
+
+	std::cout << a << ", " << b << '\n';	// 2, 1
+
+	save("STL.cpp");
 }

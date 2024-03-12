@@ -24,13 +24,9 @@ std::ostream& operator<<(std::ostream& os, const Dog& ref)
 	return os;
 }
 
+// 템플릿 함수 선언
 template <typename T>
-void change(T& a, T& b)
-{
-	T temp{ a };
-	a = b;
-	b = temp;
-}
+void change(T&, T&);
 
 //-------------
 int main(void)
@@ -38,9 +34,19 @@ int main(void)
 {
 	Dog a{ 1 }, b{ 2 };
 
-	change(a, b);
+	change(a, b);							// 1. change(Dog, Dog)
+											// 2. chage(Dog&, Dog&)
+											// 3. 템플릿 코드 확장
 
 	std::cout << a << ", " << b << '\n';	// 2, 1
 
 	save("STL.cpp");
+}
+
+template <typename T>
+void change(T& a, T& b)
+{
+	T temp{ a };
+	a = b;
+	b = temp;
 }

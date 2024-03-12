@@ -1,52 +1,25 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		3월 7일 목요일		(1주 2)
+// 2024 1학기 STL 화56목56		3월 12일 화요일		(2주 1)
 // 
 // 많은 수의 데이터를 처리할 수 있어야...
 //-------------------------------------------------------------------
 #include <iostream>
+#include <fstream>
+#include <algorithm>
 #include "save.h"
 
-// [문제] main()을 손대지 말고 의도대로 실행되도록 change()를 선언하고 정의
-
-class Dog
-{
-private:
-	int num;
-public:
-	Dog(int n) : num(n) {}
-	// operator int() { return num; }
-	friend std::ostream& operator<<(std::ostream& os, const Dog& ref);
-};
-
-std::ostream& operator<<(std::ostream& os, const Dog& ref)
-{
-	os << ref.num;
-	return os;
-}
-
-// 템플릿 함수 선언
-template <typename T>
-void change(T&, T&);
+// [문제] "int값들.txt"에는 몇 개인지 모르는 int값이 있다.
+// 제일 큰 값을 찾아 화면에 출력하라.
 
 //-------------
 int main(void)
 //-------------
 {
-	Dog a{ 1 }, b{ 2 };
-
-	change(a, b);							// 1. change(Dog, Dog)
-											// 2. chage(Dog&, Dog&)
-											// 3. 템플릿 코드 확장
-
-	std::cout << a << ", " << b << '\n';	// 2, 1
+	std::ifstream in{ "int값들.txt" };
+	if (not in) 
+		exit(0);
+	
+	std::cout << "최대값: " << *std::max_element(std::istream_iterator<int>{in}, { }) << '\n';
 
 	save("STL.cpp");
-}
-
-template <typename T>
-void change(T& a, T& b)
-{
-	T temp{ a };
-	a = b;
-	b = temp;
 }

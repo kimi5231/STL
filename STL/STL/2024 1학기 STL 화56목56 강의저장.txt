@@ -1865,3 +1865,814 @@ int main(void)
 
 	save("STL.cpp");
 }
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 1:45:16
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이 write 함수로 sizeof(Dog)*100 바이트를 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	std::ifstream in{ "개들" };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+
+	Dog dog;
+
+	for (int i = 0; i < 100; ++i) {
+		in.read((char*)&dog, sizeof(Dog));
+		dog.show();
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 1:45:23
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이 write 함수로 sizeof(Dog)*100 바이트를 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	std::ifstream in{ "개들" };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+
+	Dog dog;
+
+	for (int i = 0; i < 100; ++i) {
+		in.read((char*)&dog, sizeof(Dog));
+		dog.show();
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 1:46:53
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이 write 함수로 sizeof(Dog)*100 바이트를 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+
+	Dog dog;
+
+	for (int i = 0; i < 100; ++i) {
+		in.read((char*)&dog, sizeof(Dog));
+		dog.show();
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 1:46:56
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이 write 함수로 sizeof(Dog)*100 바이트를 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+
+	Dog dog;
+
+	for (int i = 0; i < 100; ++i) {
+		in.read((char*)&dog, sizeof(Dog));
+		dog.show();
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 1:49:07
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이 write 함수로 sizeof(Dog)*100 바이트를 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	Dog dog;
+
+	for (int i = 0; i < 100; ++i) {
+		in.read((char*)&dog, sizeof(Dog));
+		dog.show();
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 1:57:28
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이 write 함수로 sizeof(Dog)*100 바이트를 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	std::array <Dog, 100> dogs;
+	// 1. dogs.data()	<- 항상 이 방법을 고수
+	// 2. &dogs[0]
+	// 3. &dogs
+	in.read((char*)dogs.data(), sizeof(Dog) * 100);
+
+	for (const Dog& dog : dogs)
+		dog.show();
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 2:25:31
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	int getNum() const {
+		return num;
+	}
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+	friend std::istream& operator>>(std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	// in 파일의 크기를 filesystem을 이용하여 얻는다.
+	// 파일사이즈/sizeof(Dog) -> 100개
+	// new Dog[num];
+
+	Dog dog;
+	int cnt{};
+	while (in >> dog)
+		++cnt;
+
+	std::cout << "읽은 Dog 개수 - " << cnt << '\n';
+	dog.show();
+
+	std::array<Dog, 100> dogs;
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	Dog maxDog;
+	int maxValue{ std::numeric_limits<int>::min() };
+	for (const Dog& dog : dogs) {
+		if (dog.getNum() > maxValue) {
+			maxValue = dog.getNum();
+			maxDog = dog;
+		}
+	}
+
+	std::cout << "num값이 가장 큰 Dog" << '\n';
+	maxDog.show();
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 2:43:49
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	int getNum() const {
+		return num;
+	}
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+	friend std::istream& operator>>(std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	// in 파일의 크기를 filesystem을 이용하여 얻는다.
+	// 파일사이즈/sizeof(Dog) -> 100개
+	// new Dog[num];
+
+	Dog dog;
+	int cnt{};
+	while (in >> dog)
+		++cnt;
+
+	std::cout << "읽은 Dog 개수 - " << cnt << '\n';
+	dog.show();
+
+	std::array<Dog, 100> dogs;
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getNum() < b.getNum();
+		});
+
+	std::cout << "num값이 가장 큰 Dog" << '\n';
+	pos->show();
+	// Dog, c-M, num-1559150592
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 2:44:17
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	int getNum() const {
+		return num;
+	}
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+	friend std::istream& operator>>(std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	// in 파일의 크기를 filesystem을 이용하여 얻는다.
+	// 파일사이즈/sizeof(Dog) -> 100개
+	// new Dog[num];
+
+	Dog dog;
+	int cnt{};
+	while (in >> dog)
+		++cnt;
+
+	std::cout << "읽은 Dog 개수 - " << cnt << '\n';
+	dog.show();
+
+	std::array<Dog, 100> dogs;
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getNum() < b.getNum();
+		});
+
+	std::cout << "num값이 가장 큰 Dog" << '\n';
+	pos->show();
+	// Dog, c-M, num-1559150592
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 2:44:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	int getNum() const {
+		return num;
+	}
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+	friend std::istream& operator>>(std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	// in 파일의 크기를 filesystem을 이용하여 얻는다.
+	// 파일사이즈/sizeof(Dog) -> 100개
+	// new Dog[num];
+
+	Dog dog;
+	int cnt{};
+	while (in >> dog)
+		++cnt;
+
+	std::cout << "읽은 Dog 개수 - " << cnt << '\n';
+	dog.show();
+
+	std::array<Dog, 100> dogs;
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getNum() < b.getNum();
+		});
+
+	std::cout << "num값이 가장 큰 Dog" << '\n';
+	pos->show();
+	// Dog, c-M, num-1559150592
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 2:44:25
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
+// 파일을 읽어 가장 num값이 큰 Dog 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	int getNum() const {
+		return num;
+	}
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+	friend std::istream& operator>>(std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	// in 파일의 크기를 filesystem을 이용하여 얻는다.
+	// 파일사이즈/sizeof(Dog) -> 100개
+	// new Dog[num];
+
+	Dog dog;
+	int cnt{};
+	while (in >> dog)
+		++cnt;
+
+	std::cout << "읽은 Dog 개수 - " << cnt << '\n';
+	dog.show();
+
+	std::array<Dog, 100> dogs;
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.getNum() < b.getNum();
+		});
+
+	std::cout << "num값이 가장 큰 Dog" << '\n';
+	pos->show();
+	// Dog, c-M, num-1559150592
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 2:59:59
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
+// 파일을 읽어 가장 num값이 1'0000미만인 Dog 객체는 몇 개인지 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	int getNum() const {
+		return num;
+	}
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+	friend std::istream& operator>>(std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	// in 파일의 크기를 filesystem을 이용하여 얻는다.
+	// 파일사이즈/sizeof(Dog) -> 100개
+	// new Dog[num];
+
+	std::array<Dog, 100> dogs;
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	int cnt{};
+	for (const Dog& dog : dogs) {
+		if (dog.getNum() < 1'0000)
+			++cnt;
+	}
+	std::cout << "10000 미만 개수 " << cnt << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-03-19 화요일 오후 3:07:24
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 14일 목요일		(2주 2)
+// 
+// FILE I/O text/binary - high/low level
+//-------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
+// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
+// 파일을 읽어 가장 num값이 1'0000미만인 Dog 객체는 몇 개인지 정보를 화면에 출력하라.
+// class Dog의 멤버는 다음과 같다.
+ 
+class Dog
+{
+private:
+	char c;
+	int num;
+public:
+	int getNum() const {
+		return num;
+	}
+	void show() const {
+		std::cout << "Dog, c-" << c << ", num-" << num << '\n';
+	}
+	friend std::istream& operator>>(std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// 꼭 바이너리 모드로 읽을 것
+	std::ifstream in{ "개들", std::ios::binary };
+	if (not in) {
+		std::cout << "열 수 없다" << '\n';
+		return 0;
+	}
+	// 100번 째 Dog, c-i, num--2288
+
+	// in 파일의 크기를 filesystem을 이용하여 얻는다.
+	// 파일사이즈/sizeof(Dog) -> 100개
+	// new Dog[num];
+
+	std::array<Dog, 100> dogs;
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	int num = std::count_if(dogs.begin(), dogs.end(), [](const Dog& dog) {
+		if (1'0000 > dog.getNum())
+			return true;
+		return false;
+		});
+	std::cout << "개수 - " << num << '\n';
+
+	save("STL.cpp");
+}

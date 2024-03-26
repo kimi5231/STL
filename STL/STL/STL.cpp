@@ -1,23 +1,51 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		3월 21일 목요일		(3주 2)
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
 // 
-// 실행파일의 메모리 구조 - STACK CODE DATA free-store
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+// 
+// RAII - 메모리, FILE, jthread, mutex 등
 //-------------------------------------------------------------------
 #include <iostream>
 #include "save.h"
 
-// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
-// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
-// 파일을 읽어 가장 num값이 1'0000미만인 Dog 객체는 몇 개인지 정보를 화면에 출력하라.
-// class Dog의 멤버는 다음과 같다.
+class Dog
+{
+public:
+	Dog() { std::cout << "생성" << '\n'; }
+	~Dog() { std::cout << "소멸" << '\n'; }
+};
 
-int a[1'000'000]{1};
+class 스마트포인터 {
+private:
+	Dog* p;
+public:
+	스마트포인터(Dog* p) : p(p) {}
+	~스마트포인터() { delete p; }
+};
+
+void f()
+{
+	std::cout << "f 시작" << '\n';
+	스마트포인터 p(new Dog);
+	throw 1234;
+	std::cout << "f 끝" << '\n';
+}
 
 //-------------
 int main(void)
 //-------------
 {
-	std::cout << a[999'999] << '\n';
-	std::cout << a[0] << '\n';
-	save("STL.cpp");
+	std::cout << "main() 시작" << '\n';
+	try {
+		f();
+	}
+	catch (...) {		// ... elipses
+		std::cout << "예외를 받았어요" << '\n';
+	}
+	std::cout << "main() 끝" << '\n';
 }

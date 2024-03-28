@@ -1,51 +1,46 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 2024 1학기 STL 화56목56		3월 28일 목요일		(4주 2)
 // 
-// free-store - RAII
-// 
-// C++언어에서 사용하지 않도록 권고
-// - char*		-->	string
-// - T[N]		-->	array<T, N>
-// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
-// 
-// RAII - 메모리, FILE, jthread, mutex 등
+// callable type -> 정렬 예제에서 시작
 //-------------------------------------------------------------------
 #include <iostream>
+#include <array>
+#include <random>
+#include <print>
 #include "save.h"
 
-class Dog
-{
-public:
-	Dog() { std::cout << "생성" << '\n'; }
-	~Dog() { std::cout << "소멸" << '\n'; }
-};
+// [문제] int 100개를 저장할 공간을 확보하라.
+// int 100개의 값을 [1, 10000] 랜덤값으로 설정하라.
+// int값 100개를 C의 qsort를 사용하여 오름차순으로 정렬하라.
+// 정렬결과를 한 줄에 10개씩 화면에 출력하라.
 
-class 스마트포인터 {
-private:
-	Dog* p;
-public:
-	스마트포인터(Dog* p) : p(p) {}
-	~스마트포인터() { delete p; }
-};
+std::array<int, 100> a;
+std::uniform_int_distribution uid{1, 10000};
+std::default_random_engine dre;
 
-void f()
-{
-	std::cout << "f 시작" << '\n';
-	스마트포인터 p(new Dog);
-	throw 1234;
-	std::cout << "f 끝" << '\n';
-}
+int 정렬방법(const void*, const void*);
 
 //-------------
 int main(void)
 //-------------
 {
-	std::cout << "main() 시작" << '\n';
-	try {
-		f();
-	}
-	catch (...) {		// ... elipses
-		std::cout << "예외를 받았어요" << '\n';
-	}
-	std::cout << "main() 끝" << '\n';
+	for (int& num : a)
+		num = uid(dre);
+
+	// 여기서 qsort로 정렬한다 - qsort는 C함수이지만 generic 함수이다.
+	// qsort( 어디를, 몇개야, 한개의 크기는, 너 만의 정렬방법을 알려줘 );
+
+	int (*함수)(const void*, const void*)  = 정렬방법;
+
+	qsort(a.data(), a.size(), sizeof(int), 함수);
+
+	for (int num : a)
+		std::print("{:8}", num);
+
+	save("STL.cpp");
+}
+
+int 정렬방법(const void* a, const void* b)
+{
+	return *(int*)b - *(int*)a;
 }

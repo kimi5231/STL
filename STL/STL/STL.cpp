@@ -1,38 +1,36 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		4월 2일 화요일		(5주 1)
+// 2024 1학기 STL 화56목56		4월 4일 목요일		(5주 2)
 // 
 // 4월 25일 (8주 1일) - 중간시험
 //-------------------------------------------------------------------
 #include <iostream>
-#include <cstring>
+#include <array>
+#include <algorithm>
 #include "save.h"
+#include "String.h"
 
-class String
-{
-private:
-	size_t len{};
-	std::unique_ptr<char[]> p{};
-public:
-	String(const char* str) : len(strlen(str)) {
-		p = std::make_unique<char[]>(len);
-		memcpy(p.get(), str, len);
-	}
-	friend std::ostream& operator<<(std::ostream& os, const String& s) {
-		for (size_t i = 0; i < s.len; i++)
-			os << s.p.get()[i];
-		return os;
-	}
-};
+extern bool 관찰;
 
 //-------------
 int main(void)
 //-------------
 {
-	String s{ "STL 공부를 위한 클래스" };
-	String t = s;
+	std::array<String, 5> a{
+		"12341232312312312312312314123999999999",
+		"23313143423123213243245324567463214567463213`3243565333",
+		"213333333333333424121",
+		"777777713231232312323123",
+		"555551323213123213"
+	};
 
-	std::cout << s << '\n';
-	std::cout << t << '\n';
+	관찰 = true;
+	// [문제] a의 각 String이 관리하는 글자를 오름차순으로 정렬하라.
+	for (const String& s : a)
+		std::sort(s.getData(), s.getData() + s.getLen());
+	관찰 = false;
+
+	for (String& s : a)
+		std::cout << s << '\n';
 
 	save("STL.cpp");
 }

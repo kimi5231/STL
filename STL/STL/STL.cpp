@@ -1,11 +1,15 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		4월 4일 목요일		(5주 2)
+// 2024 1학기 STL 화56목56		4월 9일 화요일		(6주 1)
 // 
 // 4월 25일 (8주 1일) - 중간시험
+// 
+// STL Container - Containers are objects that store other objects.
+// 실습할 시간을 줘야 한다.
 //-------------------------------------------------------------------
 #include <iostream>
 #include <array>
-#include <algorithm>
+#include <fstream>
+#include <string>
 #include "save.h"
 #include "String.h"
 
@@ -15,22 +19,16 @@ extern bool 관찰;
 int main(void)
 //-------------
 {
-	std::array<String, 5> a{
-		"12341232312312312312312314123999999999",
-		"23313143423123213243245324567463214567463213`3243565333",
-		"213333333333333424121",
-		"777777713231232312323123",
-		"555551323213123213"
-	};
+	std::array<std::string, 50> a;
 
-	관찰 = true;
-	// [문제] a의 각 String이 관리하는 글자를 오름차순으로 정렬하라.
-	for (const String& s : a)
-		std::sort(s.getData(), s.getData() + s.getLen());
-	관찰 = false;
+	// [문제] "STL.cpp"의 단어를 a에 저장하라.
+	// 길이오름차순으로 a를 정렬하라.
+	// 화면에 출력하라.
 
-	for (String& s : a)
-		std::cout << s << '\n';
+	std::ifstream in{ "STL.cpp" };
+	
+	for (int i = 0; i < 50; ++i)
+		in >> a[i];					// std::string을 이용해서 하자.
 
 	save("STL.cpp");
 }

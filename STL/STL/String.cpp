@@ -107,3 +107,22 @@ char* String::getData() const
 {
 	return p.get();
 }
+
+// 입출력하기 위한 전역함수
+std::ostream& operator<<(std::ostream& os, const String& s) {
+	for (size_t i = 0; i < s.len; i++)
+		os << s.p.get()[i];
+	return os;
+}
+
+// 2024. 4. 11
+std::istream& operator>>(std::istream& is, String& s) {
+	std::string ts;
+	is >> ts;
+
+	s.len = ts.size();
+	s.p = std::make_unique<char[]>(s.len);
+	memcpy(s.p.get(), ts.data(), s.len);
+
+	return is;
+}

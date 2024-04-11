@@ -34,11 +34,10 @@ public:
 	size_t getLen() const;
 	char* getData() const;
 
-	friend std::ostream& operator<<(std::ostream& os, const String& s) {
-		for (size_t i = 0; i < s.len; i++)
-			os << s.p.get()[i];
-		return os;
-	}
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+	// 2024. 4. 11
+	friend std::istream& operator>>(std::istream& is, String& s);
 private:
 	static size_t uid;
 };

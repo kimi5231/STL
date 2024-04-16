@@ -7744,3 +7744,691 @@ int main(void)
 
 	save("STL.cpp");
 }
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 1:35:56
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	관찰 = true;
+
+	std::vector<String> v;
+
+	v.push_back("벡터입니다");
+
+	std::cout << '\n' << '\n';
+
+	v.push_back("벡터는 dynamic array입니다");
+
+	std::cout << '\n' << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 1:57:11
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	관찰 = true;
+
+	std::vector<String> v;
+
+	v.push_back("벡터입니다");
+
+	std::cout << '\n' << '\n';
+
+	v.push_back("벡터는 dynamic array입니다");
+
+	std::cout << '\n' << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 1:58:20
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	관찰 = true;
+
+	std::vector<String> v;
+
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 1:59:02
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	관찰 = true;
+
+	std::vector<String> v;
+	v.reserve(5);
+
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+	v.emplace_back("벡터입니다");
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 1:59:48
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	관찰 = true;
+
+	std::array<String, 5> v;
+	
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:03:41
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v;
+
+	std::cout << "개수 - " << v.size() << '\n';
+	std::cout << "주소 - " << v.data() << '\n';
+	std::cout << "최대 - " << v.capacity() << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:04:32
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v;
+	v.reserve(123);
+
+	std::cout << "개수 - " << v.size() << '\n';
+	std::cout << "주소 - " << v.data() << '\n';
+	std::cout << "최대 - " << v.capacity() << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:07:51
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v;
+	v.reserve(123);
+
+	std::cout << "개수 - " << v.size() << '\n';
+	std::cout << "주소 - " << v.data() << '\n';
+	std::cout << "최대 - " << v.capacity() << '\n';
+
+	for (int i = 0; i < 123; i++)
+		v.push_back(1);
+
+	std::cout << "개수 - " << v.size() << '\n';
+	std::cout << "주소 - " << v.data() << '\n';
+	std::cout << "최대 - " << v.capacity() << '\n';
+
+	v.push_back(1);
+
+	std::cout << "개수 - " << v.size() << '\n';
+	std::cout << "주소 - " << v.data() << '\n';
+	std::cout << "최대 - " << v.capacity() << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:17:49
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v;
+
+	std::cout << "vector<int> 최대 몇 개? - " << v.max_size() << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:19:13
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<double> v;
+
+	std::cout << "vector<double> 최대 몇 개? - " << v.max_size() << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:19:41
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<char> v;
+
+	std::cout << "vector<char> 최대 몇 개? - " << v.max_size() << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:26:00
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라
+	remove(v.begin(), v.end(), 3);
+
+	for (int num : v)
+		std::cout << num << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:43:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라
+	auto newEnd = remove(v.begin(), v.end(), 3);
+	v.erase(newEnd, v.end());
+
+	for (int num : v)
+		std::cout << num << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:47:44
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라
+	// erase-remove idiom
+	// C++20
+	
+	erase(v, 3);
+
+	for (int num : v)
+		std::cout << num << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:51:49
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v(100);
+
+	
+	for (int num : v)
+		std::print("{:8}", num);
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:51:57
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v(100);
+	
+	for (int num : v)
+		std::print("{:8}", num);
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 2:52:15
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 100 };
+	
+	for (int num : v)
+		std::print("{:8}", num);
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 3:00:40
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v(100);
+	std::iota(v.begin(), v.end(), 1);
+
+	// [문제] v에서 홀수를 제거하라
+	/*remove_if(v.begin(), v.end(), [](int num) {
+		return num % 2;
+		});*/
+	erase_if(v, [](int num) {
+		return num % 2;
+		});
+
+	for (int num : v)
+		std::print("{:8}", num);
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp:, 2024-04-16 화요일 오후 3:01:49
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 
+// 4월 25일 (8주 2일) - 중간시험
+// 
+// STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <print>
+#include <numeric>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v(100);
+	std::iota(v.begin(), v.end(), 1);
+
+	// [문제] v에서 홀수를 제거하라
+	/*remove_if(v.begin(), v.end(), [](int num) {
+		return num % 2;
+		});*/
+	erase_if(v, [](int num) {
+		return num&1;	// 제일 오른쪽 비트가 1이면 홀수
+		});
+
+	for (int num : v)
+		std::print("{:8}", num);
+
+	save("STL.cpp");
+}

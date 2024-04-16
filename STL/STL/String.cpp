@@ -3,6 +3,7 @@
 // 
 // 2024. 4. 4 시작
 // 2024. 4. 4 관찰메시지
+// 2024. 4. 16 noexcept
 //-----------------------------------------------------------------------
 #include "String.h"
 #include <memory>
@@ -66,7 +67,8 @@ String& String::operator=(const String& rhs)
 }
 
 // 2024. 4. 4 이동생성자.이동할당연산자
-String::String(String&& other)
+// 2024. 4. 16 noexcept
+String::String(String&& other) noexcept
 	: len{other.len}, id{++uid}
 {
 	p.reset(other.p.get());
@@ -79,7 +81,7 @@ String::String(String&& other)
 		<< static_cast<void*>(p.get()) << '\n';
 }
 
-String& String::operator=(String&& rhs)
+String& String::operator=(String&& rhs) noexcept
 {
 	if (this == &rhs)
 		return *this;

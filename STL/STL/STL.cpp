@@ -1,13 +1,17 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		4월 11일 목요일		(6주 2)
+// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
 // 
-// 4월 25일 (8주 1일) - 중간시험
+// 4월 25일 (8주 2일) - 중간시험
 // 
 // STL container - Sequence - vector(dynamic array - [] operator)
+// 
+// push_back(T) - amortized O(1)
 //-------------------------------------------------------------------
 #include <iostream>
 #include <vector>
-#include <ranges>
+#include <array>
+#include <print>
+#include <numeric>
 #include "save.h"
 #include "String.h"
 
@@ -17,14 +21,19 @@ extern bool 관찰;
 int main(void)
 //-------------
 {
-	관찰 = true;
+	std::vector<int> v(100);
+	std::iota(v.begin(), v.end(), 1);
 
-	// [문제] 키보드에서 입력한 int 값의 합계와 평균값을 출력하라.
-	std::vector<int>v{ std::istream_iterator<int>{std::cin}, { } };
+	// [문제] v에서 홀수를 제거하라
+	/*remove_if(v.begin(), v.end(), [](int num) {
+		return num % 2;
+		});*/
+	erase_if(v, [](int num) {
+		return num&1;	// 제일 오른쪽 비트가 1이면 홀수
+		});
 
 	for (int num : v)
-		std::cout << num << ' ';
-	std::cout << '\n';
+		std::print("{:8}", num);
 
 	save("STL.cpp");
 }

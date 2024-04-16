@@ -2,6 +2,7 @@
 // String.h		STL의 동작을 관찰하기 위함
 // 
 // 2024. 4. 4
+// 2024. 4. 16 - 이동할 때 예외가 발생하지 않음을 보장 - noexcept
 //-----------------------------------------------------------------------
 #pragma once
 #include <memory>
@@ -27,8 +28,9 @@ public:
 	String& operator=(const String& rhs);
 
 	// 2024. 4. 4 이동생성자.이동할당연산자
-	String(String&&);
-	String& operator=(String&&);
+	// 2024. 4. 16 noexcept
+	String(String&&) noexcept;
+	String& operator=(String&&) noexcept;
 
 	// 2024. 4. 4 get/set
 	size_t getLen() const;

@@ -1,39 +1,48 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		4월 16일 화요일		(7주 1)
+// 2024 1학기 STL 화56목56		4월 18일 목요일		(7주 2)
 // 
 // 4월 25일 (8주 2일) - 중간시험
 // 
-// STL container - Sequence - vector(dynamic array - [] operator)
+// STL container - Sequence - deque(덱)
+// 덱 - 
 // 
-// push_back(T) - amortized O(1)
+// push_back, push_front -> O(1)
 //-------------------------------------------------------------------
 #include <iostream>
 #include <vector>
-#include <array>
-#include <print>
-#include <numeric>
+#include <deque>
+#include <list>
 #include "save.h"
 #include "String.h"
 
 extern bool 관찰;
 
+class Test
+{
+	char x[4'095];
+};
+
 //-------------
 int main(void)
 //-------------
 {
-	std::vector<int> v(100);
-	std::iota(v.begin(), v.end(), 1);
+	// std::vector<Test> v;			// 1574803, 2362204
+	std::deque<Test> v;			// 4194303
 
-	// [문제] v에서 홀수를 제거하라
-	/*remove_if(v.begin(), v.end(), [](int num) {
-		return num % 2;
-		});*/
-	erase_if(v, [](int num) {
-		return num&1;	// 제일 오른쪽 비트가 1이면 홀수
-		});
+	size_t cnt{};
 
-	for (int num : v)
-		std::print("{:8}", num);
+	while (true) {
+		try {
+			v.emplace_back();
+			++cnt;
+		}
+		catch(...) {
+			std::cout << "최대 개수 - " << v.size() << '\n';
+			return 0;
+		}
+		if (cnt % 10'0000 == 0)
+			std::cout << cnt << '\n';
+	}
 
 	save("STL.cpp");
 }

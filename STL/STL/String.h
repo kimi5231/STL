@@ -32,6 +32,9 @@ public:
 	String(String&&) noexcept;
 	String& operator=(String&&) noexcept;
 
+	// 2024. 4. 18
+	bool operator==(const String& rhs) const;
+
 	// 2024. 4. 4 get/set
 	size_t getLen() const;
 	char* getData() const;

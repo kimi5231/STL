@@ -7,6 +7,7 @@
 //-----------------------------------------------------------------------
 #include "String.h"
 #include <memory>
+#include <algorithm>
 
 bool °üÂû{ false };
 
@@ -97,6 +98,16 @@ String& String::operator=(String&& rhs) noexcept
 		<< static_cast<void*>(p.get()) << '\n';
 
 	return *this;
+}
+
+// 2024. 4. 18
+bool String::operator==(const String& rhs) const
+{
+	// "1" == "11"
+	if (len != rhs.len)
+		return false;
+
+	return std::equal(p.get(), p.get() + len, rhs.p.get());
 }
 
 // 2024. 4. 4 get/set

@@ -1,19 +1,28 @@
-//-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		3월 19일 화요일		(3주 1)
-// 
-// FILE I/O text/binary - high/low level
-//-------------------------------------------------------------------
 #include <iostream>
-#include <array>
-#include <string>
+#include <fstream>
+#include <algorithm>
 
-char c1[0x7f'ff'ff'ff]{ 1 };
+
+// [문제] "STL.cpp"를 읽어 모든 소문자를 대문자로 변환하여
+// "STL대문자.txt"에 저장하라.
 
 //-------------
 int main(void)
 //-------------
 {
-	std::cout << "사용할 수 있는 최대 배열의 크기 - " << 0x7f'ff'ff'ff << '\n';
+	std::ifstream in{ "STL.cpp", std::ios::binary };
+	if (not in)
+		return 1234567890;
 
-	
+	std::ofstream out{ "STL대문자.txt", std::ios::binary };
+
+	char c;
+	while (in.read(&c, sizeof(char)))
+		out << (c = toupper(c));
+
+	std::transform(std::istream_iterator<char>{in}, { },
+		std::ostreambuf_iterator<char>{std::cout}, [](char c) {
+			return toupper(c);
+		});
+
 }

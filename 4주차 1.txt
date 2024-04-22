@@ -1,29 +1,653 @@
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:07:19
+================================================
 
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		3월 21일 목요일		(3주 2)
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
 // 
-// 실행파일의 메모리 구조 - STACK CODE DATA free-store
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
 //-------------------------------------------------------------------
 #include <iostream>
 #include "save.h"
 
-// [문제] "개들"에는 class Dog 객체 100개가 기록되어 있다.
-// 파일은 binary 모드이고 모든 객체를 한 번의 write()로 기록하였다.
-// 파일을 읽어 가장 num값이 1'0000미만인 Dog 객체는 몇 개인지 정보를 화면에 출력하라.
-// class Dog의 멤버는 다음과 같다.
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값의 합계를 출력하라.
+// 이 과정을 영원히 반복하라.
 
-int a[1'000'000]{1};
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		int num;
+
+		std::cout << "숫자 입력: ";
+		std::cin >> num;
+
+		int* p;
+		p = new int[num];
+
+		for (int i = 0; i < num; ++i)
+			*(p + sizeof(int) * i) = i + 1;		// p[i] = i + 1;
+
+		int sum{};
+		for (int i = 0; i < num; ++i)
+			sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+	}
+
+}
+
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:08:03
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값의 합계를 출력하라.
+// 이 과정을 영원히 반복하라.
+
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		int num;
+
+		std::cout << "숫자 입력: ";
+		std::cin >> num;
+
+		int* p;
+		p = new int[num];
+
+		for (int i = 0; i < num; ++i)
+			p[i] = i + 1;		// p[i] = i + 1;
+
+		int sum{};
+		for (int i = 0; i < num; ++i)
+			sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+	}
+
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:12:42
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값의 합계를 출력하라.
+// 이 과정을 영원히 반복하라.
+
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		long long num;
+
+		std::cout << "숫자 입력: ";
+		std::cin >> num;
+
+		int* p;
+		p = new int[num];
+
+		for (int i = 0; i < num; ++i)
+			p[i] = i + 1;		// p[i] = i + 1;
+
+		long long sum{};
+		for (int i = 0; i < num; ++i)
+			sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+	}
+
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:18:33
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값의 합계를 출력하라.
+// 이 과정을 영원히 반복하라.
+
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		long long num;
+
+		std::cout << "숫자 입력: ";
+		std::cin >> num;
+
+		int* p;
+		try{
+			p = new int[num];
+		}
+		catch (const std::exception& e) {
+			std::cout << "메모리 확보 실패" << std::endl;
+			std::cout << e.what() << std::endl;
+		}
+
+		for (int i = 0; i < num; ++i)
+			p[i] = i + 1;		// p[i] = i + 1;
+
+		long long sum{};
+		for (int i = 0; i < num; ++i)
+			sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+	}
+
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:26:26
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <numeric>
+#include "save.h"
+
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 '1부터 시작하는 정수로 채워라.' iota()
+// int 값의 '합계'를 출력하라. 
+// 이 과정을 영원히 반복하라.
+// 해결하는 코드를 답지에 적어라.
+
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		long long num;
+
+		std::cout << "숫자 입력: ";
+		std::cin >> num;
+
+		int* p;
+		p = new int[num];
+
+		std::iota(p, p + num, 1);		//for (int i = 0; i < num; ++i)
+										//	p[i] = i + 1;
+
+		long long sum  = std::accumulate(p, p + num, 0);				//long long sum{};
+																		//for (int i = 0; i < num; ++i)
+																		//	sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+	}
+
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:31:03
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <numeric>
+#include "save.h"
+
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 '1부터 시작하는 정수로 채워라.' iota()
+// int 값의 '합계'를 출력하라. 
+// 이 과정을 영원히 반복하라.
+// 해결하는 코드를 답지에 적어라.
+
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		long long num;
+
+		std::cout << "숫자 입력: ";
+		std::cin >> num;
+
+		int* p;
+		p = new int[num];
+
+		std::iota(p, p + num, 1);		//for (int i = 0; i < num; ++i)
+										//	p[i] = i + 1;
+
+		long long sum  = std::accumulate(p, p + num, static_cast<long long> (0));				//long long sum{};
+																		//for (int i = 0; i < num; ++i)
+																		//	sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+	}
+
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:31:18
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <numeric>
+#include "save.h"
+
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 '1부터 시작하는 정수로 채워라.' iota()
+// int 값의 '합계'를 출력하라. 
+// 이 과정을 영원히 반복하라.
+// 해결하는 코드를 답지에 적어라.
+
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		long long num;
+
+		std::cout << "숫자 입력: ";
+		std::cin >> num;
+
+		int* p;
+		p = new int[num];
+
+		std::iota(p, p + num, 1);		//for (int i = 0; i < num; ++i)
+										//	p[i] = i + 1;
+
+		long long sum  = std::accumulate(p, p + num, 0LL);				//long long sum{};
+																		//for (int i = 0; i < num; ++i)
+																		//	sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+	}
+
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:42:36
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include <numeric>
+#include <thread>
+#include "save.h"
+
+// [문제] int num 값을 입력받아라.
+// free store에서 int를 num개 할당받아라.
+// int 값을 '1부터 시작하는 정수로 채워라.' iota()
+// int 값의 '합계'를 출력하라. 
+// 이 과정을 영원히 반복하라.
+// 해결하는 코드를 답지에 적어라.
+
+//--------
+int main()
+//--------
+{
+	save("STL.cpp");
+
+	while (true) {
+		long long num;
+
+		std::cout << "숫자: ";
+		std::cin >> num;
+
+		int* p;
+		p = new int[num];
+
+		std::iota(p, p + num, 1);		//for (int i = 0; i < num; ++i)
+										//	p[i] = i + 1;
+
+		auto sum  = std::accumulate(p, p + num, 0LL);				//long long sum{};
+																		//for (int i = 0; i < num; ++i)
+																		//	sum += p[i];
+
+		std::cout << "합계: " << sum << std::endl;
+
+		this_thread::sleep_for(3s);
+		delete[] p;
+	}
+
+}
+
+=========================================================
+STL.cpp: 2024-03-26 화요일 오후 2:58:35
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
 
 //-------------
 int main(void)
 //-------------
 {
-	std::cout << a[999'999] << '\n';
-	std::cout << a[0] << '\n';
+	int* p;
+
+	p = new int[100];
+	
+	save("STL.cpp");
+
+	delete[]p;
+	// 1. momory leak
+	// 2. dangling pointer
+	// 3. 제어경로가 복잡해 질 경우 문제 발생
+
+	// -> RAII
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 2:59:51
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+void f()
+{
+	std::cout << "f 시작" << std::endl;
+	std::cout << "f 끝" << std::endl;
+}
+
+//--------
+int main()
+//--------
+{
+	std::cout << "main 시작" << std::endl;
+	f();
+	std::cout << "main 끝" << std::endl;
+
 	save("STL.cpp");
 }
 
-=========================================================
-STL.cpp:, 2024-03-26 화요일 오후 2:58:35
-=========================================================
+================================================
+STL.cpp: 2024-03-26 화요일 오후 3:01:35
+================================================
 
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+class Dog {
+public:
+	Dog() {
+		std::cout << "생성" << std::endl;
+	}
+	~Dog() {
+		std::cout << "소멸" << std::endl;
+	}
+};
+
+void f()
+{
+	std::cout << "f 시작" << std::endl;
+	Dog* p;
+	p = new Dog;
+
+	delete p;
+	std::cout << "f 끝" << std::endl;
+}
+
+//--------
+int main()
+//--------
+{
+	std::cout << "main 시작" << std::endl;
+	f();
+	std::cout << "main 끝" << std::endl;
+
+	save("STL.cpp");
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 3:05:21
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+class Dog {
+public:
+	Dog() {
+		std::cout << "생성" << std::endl;
+	}
+	~Dog() {
+		std::cout << "소멸" << std::endl;
+	}
+};
+
+class 스마트포인터 {
+	Dog* p;
+public:
+	스마트포인터(Dog* p) :p{ p } {}
+	~스마트포인터() {
+		delete p;
+	}
+};
+
+void f()
+{
+	std::cout << "f 시작" << std::endl;
+	스마트포인터 p(new Dog);
+	std::cout << "f 끝" << std::endl;
+}
+
+//--------
+int main()
+//--------
+{
+	std::cout << "main 시작" << std::endl;
+	f();
+	std::cout << "main 끝" << std::endl;
+
+	save("STL.cpp");
+}
+
+================================================
+STL.cpp: 2024-03-26 화요일 오후 3:08:27
+================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		3월 26일 화요일		(4주 1)
+// 
+// free-store - RAII
+// 
+// C++언어에서 사용하지 않도록 권고
+// - char*		-->	string
+// - T[N]		-->	array<T, N>
+// - T*(raw *)	-->	unique_ptr, shared_ptr(스마트 포인터)
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+
+class Dog {
+public:
+	Dog() {
+		std::cout << "생성" << std::endl;
+	}
+	~Dog() {
+		std::cout << "소멸" << std::endl;
+	}
+};
+
+class 스마트포인터 {
+	Dog* p;
+public:
+	스마트포인터(Dog* p) :p{ p } {}
+	~스마트포인터() {
+		delete p;
+	}
+};
+
+void f()
+{
+	std::cout << "f 시작" << std::endl;
+	스마트포인터 p(new Dog);
+
+	throw 1234;
+
+	std::cout << "f 끝" << std::endl;
+}
+
+//--------
+int main()
+//--------
+{
+	std::cout << "main 시작" << std::endl;
+	
+	try {
+		f();
+	}
+	catch (...) {			// ... elipses
+		std::cout << "예외를 받았어요." << std::endl;
+	}
+	
+	std::cout << "main 끝" << std::endl;
+
+	save("STL.cpp");
+}

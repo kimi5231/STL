@@ -1,0 +1,22 @@
+#INCLUDE <IOSTREAM>
+#INCLUDE <FSTREAM>
+
+
+// [문제] "STL.CPP"를 읽어 모든 소문자를 대문자로 변환하여
+// "STL대문자.TXT"에 저장하라.
+
+//-------------
+INT MAIN(VOID)
+//-------------
+{
+	STD::IFSTREAM IN{ "TEST.CPP", STD::IOS::BINARY };
+	IF (NOT IN)
+		RETURN 1234567890;
+
+	STD::OFSTREAM OUT{ "STL대문자.TXT", STD::IOS::BINARY };
+
+	CHAR C;
+	WHILE (IN.READ(&C, SIZEOF(CHAR)))
+		OUT << (C = TOUPPER(C));
+
+}

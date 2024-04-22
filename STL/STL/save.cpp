@@ -42,7 +42,7 @@ void save(std::string_view fileName)
 	// 시간을 기록한다.
 	out << '\n' << '\n';
 	out << "=========================================================" << '\n';
-	out << fileName << std::put_time(It, ":, %x %A %X") << '\n';
+	out << fileName << std::put_time(It, ": %x %A %X") << '\n';
 	out << "=========================================================" << '\n';
 	out << '\n';
 

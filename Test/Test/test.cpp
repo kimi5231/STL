@@ -1,28 +1,19 @@
 #include <iostream>
-#include <fstream>
+#include <array>
+#include <random>
+#include <print>
 #include <algorithm>
-
-
-// [문제] "STL.cpp"를 읽어 모든 소문자를 대문자로 변환하여
-// "STL대문자.txt"에 저장하라.
+#include <string>
 
 //-------------
 int main(void)
 //-------------
 {
-	std::ifstream in{ "STL.cpp", std::ios::binary };
-	if (not in)
-		return 1234567890;
+	std::array<std::string, 5> a{
+		"2024년", "4월", "4일", "목요일", "즐거운 STL"
+	};
 
-	std::ofstream out{ "STL대문자.txt", std::ios::binary };
-
-	char c;
-	while (in.read(&c, sizeof(char)))
-		out << (c = toupper(c));
-
-	std::transform(std::istream_iterator<char>{in}, { },
-		std::ostreambuf_iterator<char>{std::cout}, [](char c) {
-			return toupper(c);
-		});
+	for (std::string s : a)
+		std::cout << s << '\n';
 
 }

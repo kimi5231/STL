@@ -1,19 +1,13 @@
 #include <iostream>
-#include <array>
-#include <random>
-#include <print>
-#include <algorithm>
+#include <vector>
 #include <string>
 
 //-------------
 int main(void)
 //-------------
 {
-	std::array<std::string, 5> a{
-		"2024년", "4월", "4일", "목요일", "즐거운 STL"
-	};
+	std::vector<std::string> v;
+	std::cout << "v의 용량 - " << v.capacity() << '\n';
 
-	for (std::string s : a)
-		std::cout << s << '\n';
-
+	v.push_back("2024년");
 }

@@ -3,6 +3,7 @@
 // 
 // 2024. 4. 4
 // 2024. 4. 16 - 이동할 때 예외가 발생하지 않음을 보장 - noexcept
+// 2024. 4. 30 - list의 merge에 필요한 operator<
 //-----------------------------------------------------------------------
 #pragma once
 #include <memory>
@@ -34,6 +35,9 @@ public:
 
 	// 2024. 4. 18
 	bool operator==(const String& rhs) const;
+
+	// 2024. 4. 30
+	bool operator<(const String& rhs) const;
 
 	// 2024. 4. 4 get/set
 	size_t getLen() const;

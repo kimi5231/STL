@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		5월 2일 화요일		(9주 2)
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
 // 
 // Iterator - 반복자는 포인터를 일반화 한 것이다.
 // 
@@ -8,10 +8,9 @@
 // in a uniform manner.
 //-------------------------------------------------------------------
 #include <iostream>
-#include <vector>
-#include <list>
-#include<forward_list>
-#include <deque>
+#include <string>
+#include <algorithm>
+#include <span>
 #include "save.h"
 #include "String.h"
 
@@ -20,21 +19,17 @@ extern bool 관찰;
 template <typename 반복자>
 void f(반복자 iter)
 {
-	std::cout << typeid(반복자::iterator_category).name() << '\n';
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
 }
 
 //-------------
 int main(void)
 //-------------
 {
-	// 클래스 String은 contoguous 메모리를 관리한다.
-	// 다음 코드가 실행되게 하라.
+	String s{ "1357924680" };
 
-	String s{ "0123456789" };
-
-	for (char s : s)
-		std::cout << s << ' ';
-	std::cout << '\n';
+	// s의 반복자가 - random_access_iterator_tag
 
 	save("STL.cpp");
 }

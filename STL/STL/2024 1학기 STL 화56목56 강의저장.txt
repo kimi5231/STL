@@ -758,3 +758,662 @@ int main(void)
 
 	save("STL.cpp");
 }
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 1:44:46
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <list>
+#include<forward_list>
+#include <deque>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// SFINAE
+	std::cout << typeid(반복자::iterator_category).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	int* p;
+	//f(p);
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 1:55:11
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <list>
+#include<forward_list>
+#include <deque>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(std::iterator_traits<반복자>::iterator_category).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	int* p;
+	f(p);		// p는 std::random_access_iterator_tag
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 1:56:31
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <list>
+#include<forward_list>
+#include <deque>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(std::iterator_traits<반복자>::iterator_category).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	f(std::vector<int>::iterator{});
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:01:12
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <list>
+#include<forward_list>
+#include <deque>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	// C++17 이후 벡터의 반복자가 contiguous 하다라는 대답을 원한다면?
+	f(std::vector<int>::iterator{});
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:02:00
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <list>
+#include<forward_list>
+#include <deque>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	// C++17 이후 벡터의 반복자가 contiguous 하다라는 대답을 원한다면?
+	f(std::string::iterator{});
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:07:03
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::string s{ "1357924680" };
+
+	for (auto i = s.begin(); i != s.end(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:07:29
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::string s{ "1357924680" };
+
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:08:44
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::string s{ "1357924680" };
+
+	std::sort(s.rbegin(), s.rend());
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:22:37
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	for (char c : s)			// range-based for loop, range for, for each for
+		std::cout << c << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:23:57
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	std::sort(s.begin(), s.end());
+
+	for (char c : s)			// range-based for loop, range for, for each for
+		std::cout << c << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:27:27
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	for (auto i = s.rbegin(); i != s.rend(); --i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:34:08
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <span>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	std::span<char> ss{ s.begin(), s.end() };
+
+	for (auto i = ss.rbegin(); i != ss.rend(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:39:34
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <span>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	std::span<char> ss{ s.begin(), s.end() };
+
+	for (auto i = ss.rbegin(); i != ss.rend(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:42:07
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <span>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	std::span<char> ss{ s.begin(), s.end() };
+
+	for (auto i = ss.rbegin(); i != ss.rend(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 2:56:09
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <span>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-07 화요일 오후 3:01:43
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 7일 화요일		(10주 1)
+// 
+// Iterator - 반복자는 포인터를 일반화 한 것이다.
+// 
+// Iterators are a generalization of pointers
+// that allow a C++ program to work with different data structures
+// in a uniform manner.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <span>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <typename 반복자>
+void f(반복자 iter)
+{
+	// 반복자의 종류를 판단하는 표준 문장
+	std::cout << typeid(반복자::iterator_concept).name() << '\n';
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	String s{ "1357924680" };
+
+	for (auto i = s.begin(); i != s.end(); ++i)
+		std::cout << *i << ' ';
+	std::cout << '\n';
+
+	save("STL.cpp");
+}

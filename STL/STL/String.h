@@ -4,10 +4,73 @@
 // 2024. 4. 4
 // 2024. 4. 16 - 이동할 때 예외가 발생하지 않음을 보장 - noexcept
 // 2024. 4. 30 - list의 merge에 필요한 operator<
+// 2024. 5. 7 - begin, end
+// 2024. 5. 7 - String_reverse_iterator
+// 2024. 5. 7 - begin, end의 return 값을 String_iterator
 //-----------------------------------------------------------------------
 #pragma once
 #include <memory>
 #include <iostream>
+
+// String 반복자
+class String_iterator
+{
+public:
+	using difference_type = int;
+	using value_type = char;
+	using pointer = char*;
+	using reference = char&;
+	using iterator_category = std::random_access_iterator_tag;
+
+	// C++17
+	using iterator_cencpt = std::contiguous_iterator_tag;
+private:
+	char* p;
+public:
+	String_iterator(char* p) : p{ p } { };
+
+	char operator*() {
+		return *p;
+	};
+
+	char* operator++() {
+		return ++p;
+	};
+
+	bool operator==(const String_iterator& rhs) const {
+		return p == rhs.p;
+	}
+};
+
+// 역방향 반복자 - 반복자 어댑터
+class String_reverse_iterator
+{
+public:
+	using difference_type = int;
+	using value_type = char;
+	using pointer = char*;
+	using reference = char&;
+	using iterator_category = std::random_access_iterator_tag;
+
+	// C++17
+	using iterator_cencpt = std::contiguous_iterator_tag;
+private:
+	char* p;
+public:
+	String_reverse_iterator(char* p) : p{p} { };
+
+	char operator*() {
+		return *(p - 1);
+	};
+
+	char* operator++() {
+		return --p;
+	};
+
+	bool operator==(const String_reverse_iterator& rhs) const {
+		return p == rhs.p;
+	}
+};
 
 class String
 {
@@ -42,6 +105,24 @@ public:
 	// 2024. 4. 4 get/set
 	size_t getLen() const;
 	char* getData() const;
+
+	// interface
+	// 2024. 5. 7
+	String_iterator begin() const {
+		return String_iterator{ p.get() };
+	}
+
+	String_iterator end() const {
+		return String_iterator{p.get() + len};
+	}
+
+	String_reverse_iterator rbegin() const {
+		return String_reverse_iterator{ p.get() + len };
+	}
+
+	String_reverse_iterator rend() const {
+		return String_reverse_iterator{ p.get() };
+	}
 
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 

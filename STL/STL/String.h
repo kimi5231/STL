@@ -7,6 +7,7 @@
 // 2024. 5. 7 - begin, end
 // 2024. 5. 7 - String_reverse_iterator
 // 2024. 5. 7 - begin, end의 return 값을 String_iterator
+// 2024. 5. 9 - sort가 문제없이 실행되도록 연산자를 오버로딩하였다
 //-----------------------------------------------------------------------
 #pragma once
 #include <memory>
@@ -16,7 +17,7 @@
 class String_iterator
 {
 public:
-	using difference_type = int;
+	using difference_type = std::ptrdiff_t;
 	using value_type = char;
 	using pointer = char*;
 	using reference = char&;
@@ -29,7 +30,7 @@ private:
 public:
 	String_iterator(char* p) : p{ p } { };
 
-	char operator*() {
+	reference operator*() const {			// 2024. 5. 9
 		return *p;
 	};
 
@@ -40,13 +41,39 @@ public:
 	bool operator==(const String_iterator& rhs) const {
 		return p == rhs.p;
 	}
+
+	// 2024. 5. 9 sort에서 요구하는 연산들
+	difference_type operator-(const String_iterator & rhs) const {
+		return p - rhs.p;
+	}
+
+	//const char operator*() {
+	//	return *p;
+	//};
+
+	String_iterator& operator--() {
+		--p;
+		return *this;
+	};
+
+	String_iterator operator+(const difference_type diff) const {
+		return String_iterator{ p + diff };
+	}
+
+	bool operator<(const String_iterator& rhs) const {
+		return p < rhs.p;
+	}
+
+	String_iterator operator-(const difference_type diff) const {
+		return String_iterator{ p - diff };
+	}
 };
 
 // 역방향 반복자 - 반복자 어댑터
 class String_reverse_iterator
 {
 public:
-	using difference_type = int;
+	using difference_type = std::ptrdiff_t;
 	using value_type = char;
 	using pointer = char*;
 	using reference = char&;

@@ -2,12 +2,19 @@
 #include <vector>
 #include <string>
 
+template <typename 반복자>
+void f(반복자 iter)
+{
+	std::cout << typeid(iter).name() << '\n';
+}
+
 //-------------
 int main(void)
 //-------------
 {
-	std::vector<std::string> v;
-	std::cout << "v의 용량 - " << v.capacity() << '\n';
+	std::vector<int> v;
+	std::ostream_iterator<char> p{ std::cout };
 
-	v.push_back("2024년");
+	f(v.begin());
+	f(p);
 }

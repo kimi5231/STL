@@ -1,0 +1,368 @@
+
+
+=========================================================
+STL.cpp: 2024-05-14 화요일 오후 2:30:04
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 14일 화요일		(11주 1)
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+// callable type 중에서 boolean을 리턴하는 것을 Predicate이라 한다
+template <class 반복자, class Pred>
+반복자 my_find_if(반복자 b, 반복자 e, Pred f)
+{
+	while (b != e) {
+		if (f(*b))
+			return b;
+		++b;
+	}
+	return e;
+}
+
+// [실습] 연산자 오버로딩
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	String s{ "1357924580 stl aldorithm" };
+
+	// [문제] s에서 사용자가 찾는 조건(짝수)에 맞는 문자를
+	// 모두 출력하라.
+	// 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+	auto beg = s.begin();
+
+	while (true) {
+		std::cout << "찾을 문자? ";
+		char c;
+		std::cin >> c;
+
+		auto p = my_find_if(beg, s.end(), [](char c) {
+			if (isdigit(c)) {
+				if ((c & 1) == 0)
+					return true;
+			}
+			return false;
+			});
+		
+		if (p != s.end()) {
+			std::cout << *p << "는 s의 " << std::distance(s.begin(), p) + 1 << "번째 문자입니다" << '\n';
+		}
+		else {
+			std::cout << "조건에 맞는 문자는 s에 없습니다" << '\n';
+			break;
+		}
+		beg = p + 1;
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-14 화요일 오후 2:30:28
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 14일 화요일		(11주 1)
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+// callable type 중에서 boolean을 리턴하는 것을 Predicate이라 한다
+template <class 반복자, class Pred>
+반복자 my_find_if(반복자 b, 반복자 e, Pred f)
+{
+	while (b != e) {
+		if (f(*b))
+			return b;
+		++b;
+	}
+	return e;
+}
+
+// [실습] 연산자 오버로딩
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	String s{ "1357924580 stl aldorithm" };
+
+	// [문제] s에서 사용자가 찾는 조건(짝수)에 맞는 문자를
+	// 모두 출력하라.
+	// 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+	auto beg = s.begin();
+
+	while (true) {
+		auto p = my_find_if(beg, s.end(), [](char c) {
+			if (isdigit(c)) {
+				if ((c & 1) == 0)
+					return true;
+			}
+			return false;
+			});
+		
+		if (p != s.end()) {
+			std::cout << *p << "는 s의 " << std::distance(s.begin(), p) + 1 << "번째 문자입니다" << '\n';
+		}
+		else {
+			std::cout << "조건에 맞는 문자는 s에 없습니다" << '\n';
+			break;
+		}
+		beg = p + 1;
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-14 화요일 오후 2:31:22
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 14일 화요일		(11주 1)
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+// callable type 중에서 boolean을 리턴하는 것을 Predicate이라 한다
+template <class 반복자, class Pred>
+반복자 my_find_if(반복자 b, 반복자 e, Pred f)
+{
+	while (b != e) {
+		if (f(*b))
+			return b;
+		++b;
+	}
+	return e;
+}
+
+// [실습] 연산자 오버로딩
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	String s{ "stl aldorithm 222 sdjilljslf 46 0 a 12" };
+
+	// [문제] s에서 사용자가 찾는 조건(짝수)에 맞는 문자를
+	// 모두 출력하라.
+	// 찾는 문자가 있다면 몇번째 문자인지 알려주자.
+	// 없다면 없다고 출력하자.
+
+	auto beg = s.begin();
+
+	while (true) {
+		auto p = my_find_if(beg, s.end(), [](char c) {
+			if (isdigit(c)) {
+				if ((c & 1) == 0)
+					return true;
+			}
+			return false;
+			});
+		
+		if (p != s.end()) {
+			std::cout << *p << "는 s의 " << std::distance(s.begin(), p) + 1 << "번째 문자입니다" << '\n';
+		}
+		else {
+			std::cout << "조건에 맞는 문자는 s에 없습니다" << '\n';
+			break;
+		}
+		beg = p + 1;
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-14 화요일 오후 2:35:02
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 14일 화요일		(11주 1)
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+// [실습] 연산자 오버로딩
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	String s{ "STL aldorithm 2024년 5월 14일" };
+
+	std::copy(s.begin(), s.end(), std::ostream_iterator<char>{std::cout});
+}
+
+=========================================================
+STL.cpp: 2024-05-14 화요일 오후 2:43:51
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 14일 화요일		(11주 1)
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d)
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+// [실습] 연산자 오버로딩
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	String s{ "STL aldorithm 2024년 5월 14일" };
+
+	my_copy(s.begin(), s.end(), std::ostream_iterator<char>{std::cout});
+}
+
+=========================================================
+STL.cpp: 2024-05-14 화요일 오후 2:45:36
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 14일 화요일		(11주 1)
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d)
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+// [실습] 연산자 오버로딩
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	String s{ "STL aldorithm 2024년 5월 14일" };
+	std::vector<char> v;
+	
+	my_copy(s.begin(), s.end(), std::ostream_iterator<char>{std::cout});
+
+	for (char c : v)
+		std::cout << c;
+	std::cout << '\n';
+}
+
+=========================================================
+STL.cpp: 2024-05-14 화요일 오후 2:46:18
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 14일 화요일		(11주 1)
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d)
+{
+	while (b != e) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+// [실습] 연산자 오버로딩
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	String s{ "STL aldorithm 2024년 5월 14일" };
+	std::vector<char> v;
+	
+	my_copy(s.begin(), s.end(), v.begin());
+
+	for (char c : v)
+		std::cout << c;
+	std::cout << '\n';
+}

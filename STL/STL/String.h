@@ -151,10 +151,6 @@ public:
 		return String_reverse_iterator{ p.get() };
 	}
 
-	bool contains(const String& s) {
-
-	}
-
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 	// 2024. 4. 11

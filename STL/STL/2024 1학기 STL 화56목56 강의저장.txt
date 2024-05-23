@@ -1,0 +1,1412 @@
+
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 1:36:10
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <map>
+#include <set>
+#include <list>
+#include <fstream>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	// [문제] 소설에 사용된 영문자와 그 사용횟수를 횟수기준 내림차순으로 출력하라.
+	// 대문자는 소문자로 변환한다.
+	std::map<char, int> cim;
+
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+
+	char c;
+	while (in >> c) {
+		if (isalpha(c))
+			cim[tolower(c)]++;
+	}
+
+	// 횟수기준 내림차순으로...
+	std::map<int, char> icm;
+
+	for (auto [소문자, 횟수] : cim)
+		icm[횟수] = 소문자;
+
+	for (auto [횟수, 소문자] : icm)
+		std::cout << 소문자 << " - "  << 횟수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 1:37:45
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <map>
+#include <set>
+#include <list>
+#include <fstream>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	// [문제] 소설에 사용된 영문자와 그 사용횟수를 횟수기준 내림차순으로 출력하라.
+	// 대문자는 소문자로 변환한다.
+	std::map<char, int> cim;
+
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+
+	char c;
+	while (in >> c) {
+		if (isalpha(c))
+			cim[tolower(c)]++;
+	}
+
+	// 횟수기준 내림차순으로...
+	std::map<int, char, std::greater<int>> icm;
+
+	for (auto [소문자, 횟수] : cim)
+		icm[횟수] = 소문자;
+
+	for (auto [횟수, 소문자] : icm)
+		std::cout << 소문자 << " - "  << 횟수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 1:43:40
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <map>
+#include <set>
+#include <list>
+#include <fstream>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	// [문제] 소설에 사용된 영문자와 그 사용횟수를 횟수기준 내림차순으로 출력하라.
+	// 대문자는 소문자로 변환한다.
+	std::map<char, int> cim;
+
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+
+	char c;
+	while (in >> c) {
+		if (isalpha(c))
+			cim[tolower(c)]++;
+	}
+
+	// 횟수기준 내림차순으로...
+	std::multimap<int, char> icm;
+
+	for (auto [소문자, 횟수] : cim)
+		icm.insert(std::make_pair(횟수, 소문자));
+
+	for (auto [횟수, 소문자] : icm)
+		std::cout << 소문자 << " - "  << 횟수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 1:46:33
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <map>
+#include <set>
+#include <list>
+#include <fstream>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	// [문제] 소설에 사용된 영문자와 그 사용횟수를 횟수기준 내림차순으로 출력하라.
+	// 대문자는 소문자로 변환한다.
+	std::map<char, int> cim;
+
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+
+	char c;
+	while (in >> c) {
+		if (isalpha(c))
+			cim[tolower(c)]++;
+	}
+
+	// 횟수기준 내림차순으로 출력하라.
+	std::multimap<int, char> icm;
+
+	for (auto [소문자, 횟수] : cim)
+		icm.insert(std::make_pair(횟수, 소문자));
+
+	for (auto [횟수, 소문자] : icm | std::views::reverse)
+		std::cout << 소문자 << " - "  << 횟수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 1:59:35
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <map>
+#include <fstream>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	// [문제] 소설에 사용된 단어와 사용횟수를 횟수기준 내림차순으로 출력해라.
+
+	std::ifstream in{ "이상한 나라의 앨리스.txt" };
+
+	std::map<String, int> strim;
+
+	String word;
+	while (in >> word)
+		strim[word]++;
+
+	std::multimap<int, String> istrm;
+
+	for (const auto& [단어, 횟수] : strim)
+		istrm.insert(std::make_pair(횟수, 단어));
+
+	for (auto [횟수, 단어] : istrm | std::views::reverse)
+		std::cout << 단어 << " - " << 횟수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:12:27
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::uniform_int_distribution uid{ 1, 10'0000-1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// uniform 분포는 uniform 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 1000'0000; ++i)
+		iim[uid(dre)/1'0000]++;
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:13:17
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::uniform_int_distribution uid{ 1, 10'0000-1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// uniform 분포는 uniform 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 1000'0000; ++i)
+		iim[uid(dre)/5000]++;
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:13:45
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::uniform_int_distribution uid{ 1, 10'0000-1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// uniform 분포는 uniform 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 10000'0000; ++i)
+		iim[uid(dre)/5000]++;
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:20:11
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100; ++i)
+		std::cout << nd(dre) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:22:42
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100; ++i)
+		std::cout << (int)(nd(dre)*5'0000 + 5'0000) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:26:50
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/1'0000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:27:43
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 10'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/1'0000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:28:06
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.1 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 10'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 1'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:28:25
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.01 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 10'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 1'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:28:49
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.01 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 10'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 1'0000)
+			iim[num/1'0000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:29:31
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.001 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:30:34
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.2 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/1'0000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:30:46
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.2 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:30:50
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.2 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:31:13
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.3 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:31:54
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.5 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:32:03
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.0123 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 100'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:32:14
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.0123 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 1000'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:32:26
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Associative Container - set / map
+// 
+// map<Key, value> - dictionary
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::normal_distribution nd{ 0.0, 0.03 };
+std::default_random_engine dre;
+
+//-------------
+int main(void)
+//-------------
+{
+	// normal 분포는 normal 한가?
+	// 출현 숫자를 10구간으로 나누어 출현 횟수를 화면 출력하라.
+
+	std::map<int, int> iim;
+
+	for (int i = 0; i < 1000'0000; ++i) {
+		int num = nd(dre) * 5'0000 + 5'0000;
+		if (0 < num && num < 10'0000)
+			iim[num/5000]++;
+	}
+
+	for (auto [구간, 개수] : iim)
+		std::cout << 구간 << " - " << 개수 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:47:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::unordered_set<int> us{ 3, 1, 4, 2 };
+	
+	for (int num : us)
+		std::cout << num << ' ';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:47:57
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::unordered_set<int> us{ 3, 1, 4, 2 };
+	
+	us.insert(5);
+
+	for (int num : us)
+		std::cout << num << ' ';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:48:59
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::unordered_set<int> us{ 3, 1, 4, 2 };
+	
+	us.insert(10);
+
+	for (int num : us)
+		std::cout << num << ' ';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 2:49:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::unordered_set<int> us{ 3, 1, 4, 2, 10 };
+	
+	//us.insert(10);
+
+	for (int num : us)
+		std::cout << num << ' ';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 3:01:44
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+void print_us(const std::unordered_multiset<int>& us)
+{
+	std::cout << "언오더드 멀티셋의 메모리 구조" << '\n';
+
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		std::print("[{:3}]", i);
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			std::cout << " - " << *p;
+		std::cout << '\n';
+	}
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	std::unordered_multiset<int> us{ 3, 1, 4, 2 };
+	
+	while (true) {
+		std::cout << "추가할 값은? ";
+		int num;
+		std::cin >> num;
+		us.insert(num);
+		print_us(us);
+		std::cout << '\n' << '\n';
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 3:02:49
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+void print_us(const std::unordered_multiset<int>& us)
+{
+	std::cout << "언오더드 멀티셋의 메모리 구조" << '\n';
+
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		std::print("[{:3}]", i);
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			std::cout << " - " << *p;
+		std::cout << '\n';
+	}
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	std::unordered_multiset<int> us{ 3, 1, 4, 2 };
+	
+	while (true) {
+		std::cout << "추가할 값은? ";
+		int num;
+		std::cin >> num;
+		us.insert(num);
+		print_us(us);
+		std::cout << '\n' << '\n';
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-23 목요일 오후 3:03:23
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 23일 목요일		(12주 2)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+void print_us(const std::unordered_multiset<int>& us)
+{
+	std::cout << "언오더드 멀티셋의 메모리 구조" << '\n';
+
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		std::print("[{:3}]", i);
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			std::cout << " - " << *p;
+		std::cout << '\n';
+	}
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	std::unordered_multiset<int> us{ 3, 1, 4, 2 };
+	
+	while (true) {
+		std::cout << "추가할 값은? ";
+		int num;
+		std::cin >> num;
+		us.insert(num);
+		print_us(us);
+		std::cout << '\n' << '\n';
+	}
+}

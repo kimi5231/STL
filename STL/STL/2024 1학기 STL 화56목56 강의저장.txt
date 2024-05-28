@@ -1,0 +1,799 @@
+
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 1:51:17
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+void print_us(const std::unordered_multiset<String>& us)
+{
+	std::cout << "언오더드 멀티셋의 메모리 구조" << '\n';
+
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		std::print("[{:3}]", i);
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			std::cout << " - " << *p;
+		std::cout << '\n';
+	}
+}
+
+struct 해셔 {
+	size_t operator()(const String& s) const {
+		return 3;
+	}
+};
+
+
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	std::unordered_multiset<String, 해셔> us{ "2024", "5", "28", "화요일" };
+	
+	while (true) {
+		std::cout << "추가할 값은? ";
+		String str;
+		std::cin >> str;
+		us.insert(str);
+		//print_us(us);
+		std::cout << '\n' << '\n';
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 1:52:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+struct 해셔 {
+	size_t operator()(const String& s) const {
+		return 3;
+	}
+};
+
+void print_us(const std::unordered_multiset<String, 해셔>& us)
+{
+	std::cout << "언오더드 멀티셋의 메모리 구조" << '\n';
+
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		std::print("[{:3}]", i);
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			std::cout << " - " << *p;
+		std::cout << '\n';
+	}
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	std::unordered_multiset<String, 해셔> us{ "2024", "5", "28", "화요일" };
+	
+	while (true) {
+		std::cout << "추가할 값은? ";
+		String str;
+		std::cin >> str;
+		us.insert(str);
+		print_us(us);
+		std::cout << '\n' << '\n';
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 1:57:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+struct 해셔 {
+	size_t operator()(const String& s) const {
+		// String을 std::string으로 변환하여 hash<std::string>을 사용한다
+		return std::hash<std::string>()(std::string{ s.begin(), s.end() });
+	}
+};
+
+void print_us(const std::unordered_multiset<String, 해셔>& us)
+{
+	std::cout << "언오더드 멀티셋의 메모리 구조" << '\n';
+
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		std::print("[{:3}]", i);
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			std::cout << " - " << *p;
+		std::cout << '\n';
+	}
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	std::unordered_multiset<String, 해셔> us{ "2024", "5", "28", "화요일" };
+	
+	while (true) {
+		std::cout << "추가할 값은? ";
+		String str;
+		std::cin >> str;
+		us.insert(str);
+		print_us(us);
+		std::cout << '\n' << '\n';
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 1:59:56
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <>
+struct std::hash<String> {
+	size_t operator()(const String& s) const {
+		// String을 std::string으로 변환하여 hash<std::string>을 사용한다
+		return std::hash<std::string>()(std::string{ s.begin(), s.end() });
+	}
+};
+
+void print_us(const std::unordered_multiset<String>& us)
+{
+	std::cout << "언오더드 멀티셋의 메모리 구조" << '\n';
+
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		std::print("[{:3}]", i);
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			std::cout << " - " << *p;
+		std::cout << '\n';
+	}
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	save("STL.cpp");
+
+	std::unordered_multiset<String> us{ "2024", "5", "28", "화요일" };
+	
+	while (true) {
+		std::cout << "추가할 값은? ";
+		String str;
+		std::cin >> str;
+		us.insert(str);
+		print_us(us);
+		std::cout << '\n' << '\n';
+	}
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 2:21:40
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// 컨테이너의 찾기 성능을 비교해 본다.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+const int NUM = 1000'0000;
+const int FNUM = 10'0000;
+
+std::array<int, NUM> a;
+std::array<int, FNUM> fa;
+
+//-------------
+int main(void)
+//-------------
+{
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int& num : fa)
+		num = uid(dre);
+
+	{
+		// 벡터에서 찾기
+		std::cout << "벡터 준비 중...";
+		std::vector<int> v{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end())
+				++cnt;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM <<" 중에서 " << cnt << "개를 찾았다" << '\n';
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 2:25:17
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// 컨테이너의 찾기 성능을 비교해 본다.
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+const int NUM = 1000'0000;
+const int FNUM = 10'0000;
+
+std::array<int, NUM> a;
+std::array<int, FNUM> fa;
+
+//-------------
+int main(void)
+//-------------
+{
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int& num : fa)
+		num = uid(dre);
+
+	/*{
+		// 벡터에서 찾기
+		// 걸린 시간 - 126195ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "벡터 준비 중...";
+		std::vector<int> v{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end())
+				++cnt;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM <<" 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	{
+		// 셋에서 찾기
+		std::cout << "셋 준비 중...";
+		std::multiset<int> s{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = s.contains(num);
+			if (b)
+				cnt++;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 2:28:46
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// 컨테이너의 찾기 성능을 비교해 본다.
+// 벡터에서 찾기 - 걸린 시간 - 126195ms
+// 셋에서 찾기 - 걸린 시간 - 141ms
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+const int NUM = 1000'0000;
+const int FNUM = 10'0000;
+
+std::array<int, NUM> a;
+std::array<int, FNUM> fa;
+
+//-------------
+int main(void)
+//-------------
+{
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int& num : fa)
+		num = uid(dre);
+
+	/*{
+		// 벡터에서 찾기
+		// 걸린 시간 - 126195ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "벡터 준비 중...";
+		std::vector<int> v{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end())
+				++cnt;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM <<" 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	/*{
+		// 셋에서 찾기
+		// 걸린 시간 - 141ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "셋 준비 중...";
+		std::multiset<int> s{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = s.contains(num);
+			if (b)
+				cnt++;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	{
+		// 언오더드 셋에서 찾기
+		std::cout << "언오더드 셋 준비 중...";
+		std::unordered_multiset<int> us{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = us.contains(num);
+			if (b)
+				cnt++;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 2:33:46
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// 컨테이너의 찾기 성능을 비교해 본다.
+// 벡터에서 찾기        - 걸린 시간 - 126195ms
+// 정렬된 벡터에서 찾기 -
+// 셋에서 찾기          - 걸린 시간 - 141ms
+// 언오더드 셋          - 걸린 시간 - 5ms
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+const int NUM = 1000'0000;
+const int FNUM = 10'0000;
+
+std::array<int, NUM> a;
+std::array<int, FNUM> fa;
+
+//-------------
+int main(void)
+//-------------
+{
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int& num : fa)
+		num = uid(dre);
+
+	/*{
+		// 벡터에서 찾기
+		// 걸린 시간 - 126195ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "벡터 준비 중...";
+		std::vector<int> v{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end())
+				++cnt;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM <<" 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	/*{
+		// 셋에서 찾기
+		// 걸린 시간 - 141ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "셋 준비 중...";
+		std::multiset<int> s{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = s.contains(num);
+			if (b)
+				cnt++;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	/*{
+		// 언오더드 셋에서 찾기
+		// 걸린 시간 - 5ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "언오더드 셋 준비 중...";
+		std::unordered_multiset<int> us{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = us.contains(num);
+			if (b)
+				cnt++;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	{
+		// 정렬한 벡터에서 찾기
+		std::cout << "벡터 준비 중...";
+		std::vector<int> v{ a.begin(), a.end() };
+		std::sort(v.begin(), v.end());
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = std::binary_search(v.begin(), v.end(), num);
+			if (b)
+				++cnt;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-05-28 화요일 오후 2:45:51
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 
+// Unordered Associative Container - unordered_set / unordered_map
+// - 순서가 없다
+// - 메모리를 어떻게 사용하여 복잡도가 O(1)인가
+// - 내가 만든 String을 저장하려면 어떻게
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// 컨테이너의 찾기 성능을 비교해 본다.
+// 벡터에서 찾기        - 걸린 시간 - 126195ms
+// 정렬된 벡터에서 찾기 - 걸린 시간 - 35ms		--> flat_set(C++23)
+// 셋에서 찾기          - 걸린 시간 - 141ms
+// 언오더드 셋          - 걸린 시간 - 5ms
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+const int NUM = 1000'0000;
+const int FNUM = 10'0000;
+
+std::array<int, NUM> a;
+std::array<int, FNUM> fa;
+
+//-------------
+int main(void)
+//-------------
+{
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int& num : fa)
+		num = uid(dre);
+
+	/*{
+		// 벡터에서 찾기
+		// 걸린 시간 - 126195ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "벡터 준비 중...";
+		std::vector<int> v{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end())
+				++cnt;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM <<" 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	/*{
+		// 셋에서 찾기
+		// 걸린 시간 - 141ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "셋 준비 중...";
+		std::multiset<int> s{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = s.contains(num);
+			if (b)
+				cnt++;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	/*{
+		// 언오더드 셋에서 찾기
+		// 걸린 시간 - 5ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "언오더드 셋 준비 중...";
+		std::unordered_multiset<int> us{ a.begin(), a.end() };
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = us.contains(num);
+			if (b)
+				cnt++;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}*/
+
+	{
+		// 정렬한 벡터에서 찾기
+		// 걸린 시간 - 35ms
+		// 100000 중에서 63170개를 찾았다
+		std::cout << "벡터 준비 중...";
+		std::vector<int> v{ a.begin(), a.end() };
+		std::sort(v.begin(), v.end());
+		std::cout << '\n';
+
+		int cnt{};
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int num : fa) {
+			bool b = std::binary_search(v.begin(), v.end(), num);
+			if (b)
+				++cnt;
+		}
+		auto end = std::chrono::high_resolution_clock::now();
+		auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+		std::cout << "걸린 시간 - " << elapsed << '\n';
+		std::cout << FNUM << " 중에서 " << cnt << "개를 찾았다" << '\n';
+	}
+
+	save("STL.cpp");
+}

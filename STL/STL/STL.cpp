@@ -1,52 +1,55 @@
 //-------------------------------------------------------------------
-// 2024 1학기 STL 화56목56		5월 28일 화요일		(13주 1)
+// 2024 1학기 STL 화56목56		6월 6일 목요일		(14주 2)
 // 
 // 6월 6일 목요일 - 강의하겠습니다.
 // 6월 13일 목요일 (15주 2일) - 기말시험
 // 
-// 정렬관련 Algorithm - 복잡도 순으로
-// partition		- 조건에 따라 분리
-// nth_element		- n등까지와 나머지로 분리
-// partial_sort		- n등까지는 정렬된 상태로 나머지는 무관
-// sort				- 전체 정렬
-// stable_sort
+// C++20 Concept / Range
+// 
+// for/accumulate/reduce
 //-------------------------------------------------------------------
 #include <iostream>
+#include <algorithm>
 #include <array>
 #include <random>
+#include <chrono>
+#include <numeric>
+#include <execution>
 #include "save.h"
 #include "String.h"
 
-extern bool 관찰;
+std::default_random_engine dre;
+std::uniform_int_distribution uid;
 
-std::random_device rd;
-std::default_random_engine dre{ rd() };
-std::uniform_int_distribution uid{ 1, 50 };
-std::uniform_int_distribution<int> uidC{ 'A', 'Z' };
+std::array<int, 2'5000'0000> a;
 
-struct Dog {
-	char c;
-	int n;
+// for - loop
+// 걸린 시간 - 84ms
+// 합계 - 268416090773281637
 
-	Dog() {
-		c = uidC(dre);
-		n = uid(dre);
-	}
-};
+// 알고리즘 - accumulate
+// 걸린 시간 - 80ms
+// 합계 - 268416090773281637
+
+// 알고리즘 - reduce(execution::par)
+// 걸린 시간 - 35ms
+// 합계 - 268416090773281637
 
 //-------------
 int main(void)
 //-------------
 {
-	// stable_sort
-	std::array<Dog, 100> dogs;
+	for (int& num : a)
+		num = uid(dre);
 
-	sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
-		return a.c < b.c;
-		});
+	// 합산
+	long long sum{};
 
-	for (auto [글자, 숫자] : dogs)
-		std::cout << 글자 << " - " << 숫자 << '\n';
+	auto b = std::chrono::high_resolution_clock::now();
+	sum = std::reduce(std::execution::par, a.begin(), a.end(), 0LL);
+	auto d = std::chrono::high_resolution_clock::now() - b;
+	std::cout << "걸린 시간 - " << std::chrono::duration_cast<std::chrono::milliseconds>(d) << '\n';
+	std::cout << "합계 - " << sum << '\n';
 
 	save("STL.cpp");
 }

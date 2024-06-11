@@ -1,0 +1,740 @@
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:37:19
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// stable_sort
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <random>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::random_device rd;
+std::default_random_engine dre{ rd() };
+std::uniform_int_distribution uid{ 1, 50 };
+std::uniform_int_distribution<int> uidC{ 'A', 'Z' };
+
+struct Dog {
+	char c = uidC(dre);
+	int n { uid(dre) };
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// stable_sort
+	std::array<Dog, 100> dogs;
+
+	sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+		return a.c < b.c;
+		});
+
+	for (auto [글자, 숫자] : dogs)
+		std::cout << '\t' << 글자 << " - " << 숫자 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:41:17
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// stable_sort
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <random>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::random_device rd;
+std::default_random_engine dre{ rd() };
+std::uniform_int_distribution uid{ 1, 50 };
+std::uniform_int_distribution<int> uidC{ 'A', 'Z' };
+
+struct Dog {
+	char c = uidC(dre);
+	int n { uid(dre) };
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// stable_sort
+	std::array<Dog, 100> dogs;
+
+	//sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+	//	return a.c < b.c;
+	//	});
+
+	std::ranges::sort(dogs, {}, &Dog::c);
+
+	for (auto [글자, 숫자] : dogs)
+		std::cout << '\t' << 글자 << " - " << 숫자 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:42:22
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// stable_sort
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <random>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::random_device rd;
+std::default_random_engine dre{ rd() };
+std::uniform_int_distribution uid{ 1, 20 };
+std::uniform_int_distribution<int> uidC{ 'A', 'Z' };
+
+struct Dog {
+	char c = uidC(dre);
+	int n { uid(dre) };
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// stable_sort
+	std::array<Dog, 100> dogs;
+
+	//sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+	//	return a.c < b.c;
+	//	});
+
+	std::ranges::sort(dogs, {}, &Dog::c);
+	std::ranges::sort(dogs, {}, &Dog::n);
+
+	for (auto [글자, 숫자] : dogs)
+		std::cout << '\t' << 글자 << " - " << 숫자 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:42:43
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// stable_sort
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <random>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+std::random_device rd;
+std::default_random_engine dre{ rd() };
+std::uniform_int_distribution uid{ 1, 20 };
+std::uniform_int_distribution<int> uidC{ 'A', 'Z' };
+
+struct Dog {
+	char c = uidC(dre);
+	int n { uid(dre) };
+};
+
+//-------------
+int main(void)
+//-------------
+{
+	// stable_sort
+	std::array<Dog, 100> dogs;
+
+	//sort(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) {
+	//	return a.c < b.c;
+	//	});
+
+	std::ranges::sort(dogs, {}, &Dog::c);
+	std::ranges::stable_sort(dogs, {}, &Dog::n);
+
+	for (auto [글자, 숫자] : dogs)
+		std::cout << '\t' << 글자 << " - " << 숫자 << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:50:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::array<int, 10> a{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	std::copy(a.begin(), a.end(), std::ostream_iterator<int>{std::cout, ""});
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:51:35
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+//-------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::array<int, 10> a{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	std::copy(a.begin(), a.end(), a.begin()-1);
+
+	for (int num : a)
+		std::cout << num << " - ";
+	std::cout << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:55:52
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << std::distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 1:56:35
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+//-------------
+int main(void)
+//-------------
+{
+	std::list<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << std::distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:01:59
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::list<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.begin(), v.end()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:02:33
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.begin(), v.end()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:09:03
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	// 반복자가 랜덤반복자라면
+	return e - b;
+
+	/*long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;*/
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:14:52
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	// 반복자가 랜덤반복자라면
+	if(typeid(std::iterator_traits<반복자>::iterator_category).name() == typeid(std::random_access_iterator_tag).name())
+		return e - b;
+
+	/*long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;*/
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:27:08
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	// 반복자가 랜덤반복자라면
+	if (std::is_same<typename std::iterator_traits<반복자>::iterator_category,
+		std::random_access_iterator_tag>::value)
+		return e - b;
+
+	/*long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;*/
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:27:25
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	// 반복자가 랜덤반복자라면
+	if (std::is_same_v<typename std::iterator_traits<반복자>::iterator_category,
+		std::random_access_iterator_tag>)
+		return e - b;
+
+	/*long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;*/
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:29:12
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	// 반복자가 랜덤반복자라면 뺄셈으로 거리계산
+	if (std::is_same_v<typename std::iterator_traits<반복자>::iterator_category,
+		std::random_access_iterator_tag>)
+		return e - b;
+
+	// 아니라면 한 걸음씩 셀 수 밖에 없을걸.
+	long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::vector<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:35:21
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class 반복자>
+long long my_distance(반복자 b, 반복자 e)
+{
+	// 반복자가 랜덤반복자라면 뺄셈으로 거리계산
+	if constexpr (std::is_same_v<typename std::iterator_traits<반복자>::iterator_category,
+		std::random_access_iterator_tag>)
+		return e - b;
+
+	// 아니라면 한 걸음씩 셀 수 밖에 없을걸.
+	long long step{};
+
+	while (b != e) {
+		++step;
+		++b;
+	}
+
+	return step;
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	std::list<int> v{ 1,2,3,4,5 };
+
+	std::cout << "반복자간의 거리 - " << my_distance(v.end(), v.begin()) << '\n';
+
+	save("STL.cpp");
+}
+
+=========================================================
+STL.cpp: 2024-06-04 화요일 오후 2:58:01
+=========================================================
+
+//-------------------------------------------------------------------
+// 2024 1학기 STL 화56목56		6월 4일 화요일		(14주 1)
+// 
+// 6월 6일 목요일 - 강의하겠습니다.
+// 6월 13일 목요일 (15주 2일) - 기말시험
+// 
+// distance 구현
+//-------------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;
+
+template <class T>
+T add(T a, T b)
+{
+	return a + b;
+}
+
+//-------------
+int main(void)
+//-------------
+{
+	// [문제] add를 template로 작성하라.
+	std::cout << add(1, 2) << '\n';
+	std::cout << add(1.2, 3.4) << '\n';
+	std::cout << add<std::string>("2024년 ", "6월 4일") << '\n';
+
+	save("STL.cpp");
+}
